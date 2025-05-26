@@ -3,7 +3,7 @@ package com.eespindola.ms.put.dao.imp;
 import com.eespindola.ms.put.dao.UsuarioDAO;
 import com.eespindola.ms.put.models.UsuarioML;
 import com.eespindola.ms.put.utils.Constantes;
-import com.eespindola.ms.put.utils.Result;
+import com.eespindola.ms.put.models.dto.Result;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.CallableStatementCallback;
@@ -44,7 +44,7 @@ public class UsuarioImp implements UsuarioDAO {
         });
 
         if(rowAffected != null && rowAffected != 0){
-            result.isCorrect = true;
+            result.setIsCorrect(true);
         } else {
             throw new SQLException();
         }
