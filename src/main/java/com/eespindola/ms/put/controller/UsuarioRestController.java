@@ -6,7 +6,6 @@ import com.eespindola.ms.put.utils.Constantes;
 import com.eespindola.ms.put.models.dto.Result;
 import com.eespindola.ms.put.models.UsuarioML;
 import com.eespindola.ms.put.jpa.UsuarioRepository;
-import com.eespindola.ms.put.utils.FolioRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;

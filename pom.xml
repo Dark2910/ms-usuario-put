@@ -8,11 +8,11 @@
 		<version>3.4.0</version>
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
-	<groupId>com.eespindola.ms</groupId>
-	<artifactId>ms-put</artifactId>
+	<groupId>com.eespindola.usuario</groupId>
+	<artifactId>put</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Servicios</name>
-	<description>Demo project </description>
+	<name>ms-usuario-put</name>
+	<description>Demo</description>
 	<url/>
 	<licenses>
 		<license/>
