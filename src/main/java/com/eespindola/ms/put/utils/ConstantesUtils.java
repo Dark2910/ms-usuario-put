@@ -1,6 +1,6 @@
 package com.eespindola.ms.put.utils;
 
-public class ConstantesUtil {
+public class ConstantesUtils {
 
     public static final String USUARIO_UPDATE = "{CALL SP_UsuarioUpdate(?,?,?,?,?,?,?,?,?,?)}";
 

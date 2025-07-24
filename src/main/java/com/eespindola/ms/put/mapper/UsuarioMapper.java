@@ -3,7 +3,7 @@ package com.eespindola.ms.put.mapper;
 import com.eespindola.ms.put.jpa.entities.UsuarioJpa;
 import com.eespindola.ms.put.models.UsuarioMl;
 import com.eespindola.ms.put.models.dto.UsuarioDto;
-import com.eespindola.ms.put.utils.ConstantesUtil;
+import com.eespindola.ms.put.utils.ConstantesUtils;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -74,7 +74,7 @@ public class UsuarioMapper {
         return usuarioJpa;
     }
     private static Date getFechaNacimiento(String fecha) throws ParseException {
-        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ConstantesUtil.DATE_FORMAT);
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat(ConstantesUtils.DATE_FORMAT);
         return simpleDateFormat.parse(fecha);
     }
 

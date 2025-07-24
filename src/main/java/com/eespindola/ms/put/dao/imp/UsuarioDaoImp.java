@@ -2,7 +2,7 @@ package com.eespindola.ms.put.dao.imp;
 
 import com.eespindola.ms.put.dao.UsuarioDao;
 import com.eespindola.ms.put.models.UsuarioMl;
-import com.eespindola.ms.put.utils.ConstantesUtil;
+import com.eespindola.ms.put.utils.ConstantesUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.CallableStatementCallback;
@@ -19,7 +19,7 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     @Autowired
     UsuarioDaoImp(
-            @Qualifier(ConstantesUtil.HIKARI_DATA_SOURCE) DataSource dataSource
+            @Qualifier(ConstantesUtils.HIKARI_DATA_SOURCE) DataSource dataSource
 //            @Qualifier(ConstantesUtil.HIKARI_CONNECTION) JdbcTemplate jdbc
     ) {
         this.jdbcTemplate = new JdbcTemplate(dataSource);
@@ -29,7 +29,7 @@ public class UsuarioDaoImp implements UsuarioDao {
     @Override
     public Integer usuarioUpdate(UsuarioMl usuarioMl) {
 
-        String query = ConstantesUtil.USUARIO_UPDATE;
+        String query = ConstantesUtils.USUARIO_UPDATE;
 
         return jdbcTemplate.execute(query, (CallableStatementCallback<Integer>) callableStatementCallback -> {
 

@@ -2,14 +2,13 @@ package com.eespindola.ms.put.service.imp;
 
 import com.eespindola.ms.put.dao.UsuarioDao;
 import com.eespindola.ms.put.jpa.UsuarioRepository;
-import com.eespindola.ms.put.jpa.entities.UsuarioJpa;
 import com.eespindola.ms.put.mapper.UsuarioMapper;
 import com.eespindola.ms.put.models.UsuarioMl;
 import com.eespindola.ms.put.models.dto.Result;
 import com.eespindola.ms.put.models.dto.UsuarioDto;
 import com.eespindola.ms.put.service.UsuarioService;
-import com.eespindola.ms.put.utils.ConstantesUtil;
-import com.eespindola.ms.put.utils.FolioUtil;
+import com.eespindola.ms.put.utils.ConstantesUtils;
+import com.eespindola.ms.put.utils.FolioUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpEntity;
@@ -40,7 +39,7 @@ public class UsuarioServiceImp implements UsuarioService {
     public Result<Void> actualizarUsuario(Result<UsuarioDto> request) {
 
         Result<Void> response = new Result<>();
-        response.setFolioRequest(Objects.requireNonNullElse(request.getFolioRequest(), FolioUtil.createFolioRequest()));
+        response.setFolioRequest(Objects.requireNonNullElse(request.getFolioRequest(), FolioUtils.createFolioRequest()));
         try {
             UsuarioDto usuarioRecibido = request.getObject();
             UsuarioDto usuarioRecuperado = getByFolio(usuarioRecibido.getFolioId());
@@ -58,9 +57,8 @@ public class UsuarioServiceImp implements UsuarioService {
             response.setMessage(switch (resultDB) {
                 case 1 -> "Usuario actualizado correctamente";
                 case 0 -> "No se logro actualizar el usuario";
-                default -> "Error inesperado en Base de datos";
+                default -> "Error inesperado en base de datos";
             });
-
         } catch (Exception e) {
             response.setIsCorrect(false);
             response.setException(e);
@@ -71,7 +69,7 @@ public class UsuarioServiceImp implements UsuarioService {
 
     private static UsuarioDto getByFolio(@PathVariable String folioId) {
         RestTemplate restTemplate = new RestTemplate();
-        String endpoint = String.format(ConstantesUtil.GET_BY_FOLIO, folioId);
+        String endpoint = String.format(ConstantesUtils.GET_BY_FOLIO, folioId);
 
         ResponseEntity<Result<UsuarioDto>> response = restTemplate.exchange(
                 endpoint,
