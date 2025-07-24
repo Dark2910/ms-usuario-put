@@ -1,13 +1,15 @@
 package com.eespindola.ms.put.utils;
 
+import java.text.MessageFormat;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.Random;
+import java.util.UUID;
 
-public class FolioRequest {
+public class FolioUtil {
 
-    public static String CrearFolioRequest() {
+    public static String createFolioRequest() {
         Random random = new Random();
 
         String[] numeros = new String[20];
@@ -20,13 +22,16 @@ public class FolioRequest {
         }
 
         String numeroAleatorio = Arrays.stream(numeros).reduce("", String::concat);
+        LocalDateTime localDateTime = getFecha();
 
+        return (numeroAleatorio + "-" + localDateTime);
+    }
+
+    private static LocalDateTime getFecha(){
         LocalDateTime date = LocalDateTime.now();
         DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         String text = date.format(formatter);
-        LocalDateTime parsedDate = LocalDateTime.parse(text, formatter);
-
-        return (numeroAleatorio + "-" + parsedDate);
+        return  LocalDateTime.parse(text, formatter);
     }
 
 }

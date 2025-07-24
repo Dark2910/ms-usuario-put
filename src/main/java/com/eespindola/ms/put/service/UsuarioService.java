@@ -1,13 +1,11 @@
 package com.eespindola.ms.put.service;
 
 
-import com.eespindola.ms.put.models.UsuarioML;
-
-import java.text.ParseException;
+import com.eespindola.ms.put.models.dto.Result;
+import com.eespindola.ms.put.models.dto.UsuarioDto;
 
 public interface UsuarioService {
 
-    public UsuarioML Normalizar(UsuarioML usuario,
-                                 UsuarioML usuarioRecuperado) throws ParseException;
+    Result<Void> actualizarUsuario(Result<UsuarioDto> usuarioRequest);
 
 }
