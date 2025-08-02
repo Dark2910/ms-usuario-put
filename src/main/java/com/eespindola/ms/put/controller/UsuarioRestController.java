@@ -20,7 +20,10 @@ public class UsuarioRestController {
     }
 
     @PostMapping("/put")
-    public Result<Void> put(@RequestHeader(value = "folioRequest", required = false) String folioRequest , @RequestBody Result<UsuarioDto> request){
+    public Result<Void> usuarioPut(
+            @RequestHeader(value = "folioRequest", required = false) String folioRequest,
+            @RequestBody Result<UsuarioDto> request
+    ) {
         return usuarioService.actualizarUsuario(request);
     }
 
