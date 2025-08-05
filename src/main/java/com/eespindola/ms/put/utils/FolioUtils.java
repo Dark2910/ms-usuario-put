@@ -7,6 +7,10 @@ import java.util.Random;
 
 public class FolioUtils {
 
+    private FolioUtils(){
+        throw new IllegalArgumentException("Util class");
+    }
+
     public static String createFolioRequest() {
         Random random = new Random();
 

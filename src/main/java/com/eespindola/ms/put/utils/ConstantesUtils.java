@@ -2,6 +2,10 @@ package com.eespindola.ms.put.utils;
 
 public class ConstantesUtils {
 
+    private ConstantesUtils() {
+        throw new IllegalArgumentException("Util class");
+    }
+
     public static final String USUARIO_UPDATE = "{CALL SP_UsuarioUpdate(?,?,?,?,?,?,?,?,?,?)}";
 
     public static final String JDBC_DATA_SOURCE = "jdbcDataSource";
