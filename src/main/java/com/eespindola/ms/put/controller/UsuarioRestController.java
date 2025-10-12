@@ -21,7 +21,7 @@ public class UsuarioRestController {
         this.usuarioService = service;
     }
 
-    @PostMapping("/put")
+    @PutMapping("/put")
     public Result<Void> usuarioPut(
             @RequestHeader(value = "folioRequest", required = false) String folioRequest,
             @RequestBody Result<UsuarioDto> request
@@ -31,7 +31,7 @@ public class UsuarioRestController {
         return usuarioService.actualizarUsuario(request);
     }
 
-    @PostMapping("/jpa/put")
+    @PutMapping("/jpa/put")
     public Result<Void> usuarioPutJpa(
             @RequestHeader(value = "folioRequest", required = false) String folioRequest,
             @RequestBody Result<UsuarioDto> request
