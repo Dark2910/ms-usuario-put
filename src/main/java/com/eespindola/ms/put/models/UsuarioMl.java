@@ -1,16 +1,17 @@
 package com.eespindola.ms.put.models;
 
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.AllArgsConstructor;
+import com.eespindola.ms.put.mapper.UsuarioMapper;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 
+
+@Slf4j
 @Data
 @NoArgsConstructor
-public class UsuarioMl {
+public class UsuarioMl implements UsuarioMapper.GenericUser {
 
-    private int idUsuario;
+    private Integer idUsuario;
     private String folioId;
     private String nombre;
     private String apellidoPaterno;
@@ -21,4 +22,8 @@ public class UsuarioMl {
     private String password;
     private String status;
 
+    @Override
+    public void setFechaNacimiento(Object fechaNacimiento) {
+        this.fechaNacimiento = fechaNacimiento.toString();
+    }
 }

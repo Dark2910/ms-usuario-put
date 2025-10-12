@@ -3,6 +3,7 @@ package com.eespindola.ms.put.dao.imp;
 import com.eespindola.ms.put.dao.UsuarioDao;
 import com.eespindola.ms.put.models.UsuarioMl;
 import com.eespindola.ms.put.utils.ConstantesUtils;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.jdbc.core.CallableStatementCallback;
@@ -12,6 +13,7 @@ import org.springframework.stereotype.Repository;
 import javax.sql.DataSource;
 import java.sql.Types;
 
+@Slf4j
 @Repository
 public class UsuarioDaoImp implements UsuarioDao {
 
@@ -28,9 +30,13 @@ public class UsuarioDaoImp implements UsuarioDao {
 
     @Override
     public Integer usuarioUpdate(UsuarioMl usuarioMl) {
+        log.info("Entrando a usuarioUpdate");
+        log.info("usuarioMl: {}", usuarioMl);
 
         String query = ConstantesUtils.USUARIO_UPDATE;
+        log.info("query: {}", query);
 
+        log.info("Lanzando peticion");
         return jdbcTemplate.execute(query, (CallableStatementCallback<Integer>) callableStatementCallback -> {
 
             callableStatementCallback.setString("pFolio", usuarioMl.getFolioId());

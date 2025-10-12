@@ -11,7 +11,7 @@ import lombok.NoArgsConstructor;
 public class UsuarioDto {
 
     @JsonProperty("idUsuario")
-    private int idUsuario;
+    private Integer idUsuario;
 
     @JsonProperty("folioId")
     private String folioId;
